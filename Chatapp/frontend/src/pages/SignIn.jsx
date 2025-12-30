@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Link } from "react-router-dom";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
 import AuthImagePattern from "../components/AuthImagePattern";
+import { useAuthStore } from "../store/useAuthStore";
 
 
 const SignIn = () => {
@@ -11,12 +12,12 @@ const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const login = false;
-  const isLoggingIn = false;
+  // const login = false;
+  const {isLoggingIn,userLogin} = useAuthStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(formData);
+    userLogin(formData);  
   };
 
 
